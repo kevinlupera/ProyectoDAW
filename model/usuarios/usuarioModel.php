@@ -150,11 +150,7 @@ class UsuarioModel {
         }
     }
     public function buscarPersona($cedula) {
-        //Se ha pulsado el botón aceptar
-    
-        
-      
-            //validar con Base de datos
+   
             
             $sentencia = $this->db->prepare("SELECT * FROM persona where " .
                 "cedula=" . $cedula);
@@ -162,6 +158,15 @@ class UsuarioModel {
             $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Persona');
             return $resultset[0];
     } 
-
+    
+    public function buscarPersonaxId($id) {
+     
+            
+            $sentencia = $this->db->prepare("SELECT * FROM persona where " .
+                "persona_id=" . $id);
+            $sentencia->execute();
+            $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Persona');
+            return $resultset[0];
+    }
     
 }

@@ -18,7 +18,7 @@ class facturasController {
             $this->personasModel=new PersonaModel();
             $this->productoModel=new productoModel();
         }else{
-            header("Location:index.php");
+            header("Location:index.php?c=productos&a=listarProductos");
         }
     }
     

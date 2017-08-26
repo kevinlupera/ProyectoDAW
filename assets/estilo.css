@@ -58,8 +58,9 @@ h1{
 #usuarios{
     visibility: hidden;
 }*/
-#login,#cesta{
+#login,#cesta,#perfil,#panel{
     float: right;
+    margin-right: 5px;
 }
 #login{
     margin-right: 2%;

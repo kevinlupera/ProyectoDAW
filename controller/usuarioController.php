@@ -5,20 +5,23 @@ class usuarioController{
     private $usuarioModel;
     private $persona;
     function __construct() {
-         if(isset($_SESSION['usuario'])){
-        $this->usuarioModel = new UsuarioModel();
+        if(isset($_SESSION['usuario']) && $_SESSION['tipo']>=1){
+            $this->usuarioModel = new UsuarioModel();
          }else{
              header("Location:index.php");
          }
     }
     //accion por defecto
     public function consultar(){
-        //llamar al modelo
-        $this->persona=$this->usuarioModel->Listar();
-        //llamar a la vista
-        require_once 'view/header.php';
-        require_once 'view/usuarios/usuariosView.php';
-        require_once 'view/footer.php';
+        if($_SESSION['tipo']==4){
+            $this->persona=$this->usuarioModel->Listar();
+            //llamar a la vista
+            require_once 'view/header.php';
+            require_once 'view/usuarios/usuariosView.php';
+            require_once 'view/footer.php';
+        }else{
+           header("Location:index.php");
+        }
     }  
     public function registrar() {
         if (isset($_POST['botonRegistrar'])) {
@@ -42,9 +45,16 @@ class usuarioController{
         require_once 'view/footer.php';
     }
     public function buscar() {
-        require_once 'view/header.php';
-        require_once 'view/usuarios/buscarView.php';
-        require_once 'view/footer.php';
+        if($_SESSION['tipo']==4){
+            require_once 'view/header.php';
+            require_once 'view/usuarios/buscarView.php';
+            require_once 'view/footer.php';
+        }else{
+            $this->persona=$this->usuarioModel->buscarPersonaxId( $_SESSION['persona_id']);
+            require_once 'view/header.php';
+            require_once 'view/usuarios/usuarioView.php';
+            require_once 'view/footer.php';
+        }
         
     }   
     

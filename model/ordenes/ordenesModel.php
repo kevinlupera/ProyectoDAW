@@ -13,10 +13,9 @@ class ordenesModel {
         }
     }
     
-     public function obtenerOrdenesxUsuario($usuario_id) {
+     public function obtenerOrdenesxUsuario($id) {
             try{
-             $sentencia = $this->db->prepare("SELECT * FROM ordenes"
-                     . "where usuario_id=".$usuario_id);
+             $sentencia = $this->db->prepare("SELECT * FROM ordenes WHERE usuario_id=".$id."");
              $sentencia->execute();
               $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Orden');
               return $resultset;

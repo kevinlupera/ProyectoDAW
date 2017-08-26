@@ -1,12 +1,13 @@
 <?php
 
 require_once 'model/usuarios/usuarioModel.php';
+require_once 'model/productos/productoModel.php';
  
 class loginController{
      private $usuarioModel;
     function __construct() {
         $this->usuarioModel = new UsuarioModel();
-        //$this->parametroModel= new ParametroModel();
+        $this->productoModel = new productoModel();
     }
     //accion por defecto
     public function consultar(){
@@ -15,6 +16,7 @@ class loginController{
         require_once 'view/footer.php';
     }   
     public function iniciar() {
+        $this->productos=$this->productoModel->obtenerProductos();
         $usuario = new Usuario();
         if(isset(
             $_REQUEST['usuario']) && !empty($_REQUEST['usuario'])){
@@ -24,13 +26,14 @@ class loginController{
                 $_SESSION['usuario']=$usuario->getUsuario();
                 $_SESSION['usuario_id']=$usuario->getUsuario_id();
                 $_SESSION['tipo']=$usuario->getTipo();
+                $_SESSION['persona_id']=$usuario->getPersona_id();
             }
             else{
                 header("Location:index.php");
             }    
         }
         require_once 'view/header.php';
-        require_once 'view/cesta/cestaView.php';
+        require_once 'view/productos/productosView.php';
         require_once 'view/footer.php';
     }
     
