@@ -6,6 +6,7 @@ class Usuario{
     private $clave;
     private $persona_id;
     private $usu_estado;
+    private $tipo;
    
     function __construct() {
         
@@ -48,6 +49,14 @@ class Usuario{
 
     function setUsu_estado($usu_estado) {
         $this->usu_estado = $usu_estado;
+    }
+
+    function getTipo() {
+        return $this->tipo;
+    }
+
+    function setTipo($tipo) {
+        $this->tipo = $tipo;
     }
 
 

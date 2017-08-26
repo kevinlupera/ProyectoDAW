@@ -41,7 +41,9 @@
                     <?php if(isset($_SESSION['usuario'])){ echo "Bienvenido ".strtoupper($_SESSION['usuario']);                    
                     } 
                         else{
-                            echo $_COOKIE['cook'];
+                            if(isset($_COOKIE['cook'])){
+                                echo "Bienvenido de vuelta ".strtoupper($_COOKIE['cook']);
+                            }
                         }
 ?>
                     </strong>
