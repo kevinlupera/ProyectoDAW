@@ -15,5 +15,10 @@ class productosController{
         require_once 'view/productos/productosView.php';
         require_once 'view/footer.php';
     }
+    
+    public function addToCesta(){
+        $producto=new Producto();
+        
+    }
 }
 
