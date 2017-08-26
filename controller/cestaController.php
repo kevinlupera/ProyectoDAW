@@ -1,5 +1,6 @@
 <?php
 //include("/modelo/Usuario.php");
+require_once 'model/';
 
 class cestaController{
     
@@ -16,6 +17,12 @@ class cestaController{
         require_once 'view/cesta/cestaView.php';
         require_once 'view/footer.php';
     }
+    
+    public function obtenerOrdenesxUsuario($usuario_id){
+        
+    }
+    
+    
     
 }
     
