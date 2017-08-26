@@ -1,5 +1,4 @@
 <?php
-
 require_once 'model/conexion.php';
 session_start();
 // controlador inicial

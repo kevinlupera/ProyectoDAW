@@ -26,6 +26,21 @@
     <label for="fechaNacimiento">Fecha de Nacimiento:</label><br/>
     <input type="date" name="fechaNacimiento" min="1930-01-01" max="2002-12-31" id="campoFechaNac"
             required><br/>
-    <input type="submit" value="Registrar" name="botonRegistrar" class="botonForm">
+    <input type="submit" value="Registrar" name="botonRegistrar" class="botonForm" onclick="registerLog()">
     <input type="reset" value="Limpiar" class="botonForm">
 </form>
+<script>
+function RegisterLog(){
+    var nombre = document.getElementById("loginUsuer").value;
+    var clave = document.getElementById("loginPassword").value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange=function (){
+        if(xhttp.readyState==4 && xhttp.status==200){
+            document.getElementById("").innerHTML=xhttp.responseText;           
+        }
+    };
+    xhttp.open("POST", "ProcessAjax.php", true);
+    xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhttp.send("user="+user+"&pass="+clave);
+}   
+</script>
