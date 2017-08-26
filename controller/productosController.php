@@ -27,9 +27,7 @@ class productosController{
             $orden->setTotal($_POST['precio']*$_POST['cantidad']);
             $this->productoModel->insertarProductos($orden);
         }
-        require_once 'view/header.php';
-        require_once 'view/productos/productosView.php';
-        require_once 'view/footer.php';
+        $this->ListarProductos();
     }
 }
 
