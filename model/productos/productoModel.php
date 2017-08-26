@@ -39,10 +39,10 @@ private $db;
             try{
              $sentencia = $this->db->prepare("insert into ordenes "
                      ." (producto_id, usuario_id, precio, cantidad, total"
-                     . ") values(?,?,?,?,?,?)");
+                     . ") values(?,?,?,?,?)");
            $r=  $sentencia->execute(array(
                  $orden->getProducto_id(),
-                 $orden->getOrden_id(),
+                 $orden->getUsuario_id(),
                  $orden->getPrecio(),
                  $orden->getCantidad(),
                  $orden->getTotal()
