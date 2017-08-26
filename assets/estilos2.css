@@ -63,9 +63,10 @@
                 width: 50px;
             }
             
-            .btQuitar{
+            .formDel{
+                display: block;
                 width: 8%;
-                text-align: right;
+               
             }
             .btQuitar a{
                 text-decoration: none;

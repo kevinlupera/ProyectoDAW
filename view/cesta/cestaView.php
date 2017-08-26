@@ -36,7 +36,10 @@
                             echo "<span class='unidad'>$<span/>";
                         echo "</div>";
                             echo "<div class='btQuitar'>";
-                                echo "<a href='modelo/deleteOrden.php?ord=".$orden->getOrden_id()."' onclick='quitarProducto(".($x+1).")'><i class='fa fa-times' aria-hidden='true'></i>&nbsp;Quitar</a>";
+                                echo "<form method='post' action='?c=cesta&a=deleteOrden' id='formDel'>";
+                                    echo "<input type='hidden' name='idordenc' value='".$orden->getOrden_id()."'>";                
+                                    echo "<input type='submit' value='quitar'  name='del'>";
+                                echo "</form>";
                             echo "</div>";
                         echo "</div>"; 
                         $T_total = $T_total + $orden->getTotal();

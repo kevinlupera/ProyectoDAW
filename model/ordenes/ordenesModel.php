@@ -23,4 +23,14 @@ class ordenesModel {
                 die($e->getMessage());
             }
     }
+    
+    public function deleteOrden($id){
+        try{
+            $sentencia = $this->db->prepare("DELETE FROM ordenes WHERE orden_id=".$id);
+           
+            $r=  $sentencia->execute();
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
 }

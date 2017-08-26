@@ -33,6 +33,14 @@ class cestaController{
         require_once 'view/footer.php';
     }
     
+    public function deleteOrden(){
+        if(isset($_POST['del'])){
+            $idorden=$_POST['idordenc'];
+            $this->ordenes= $this->ordenesModel->deleteOrden($idorden);
+            $this->getOrdenxUser();
+        }
+    }
+    
     
     
 }
