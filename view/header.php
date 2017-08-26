@@ -4,8 +4,8 @@
         <title>Anexsoft</title>
         <link rel="stylesheet" href="assets/estilo.css" />
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="estilos/estilos2.css"/> 
-        <script src="funciones/funciones.js" type="text/javascript"></script>
+        <!--<link rel="stylesheet" href="assets/estilos2.css"/> 
+        <script src="funciones/funciones.js" type="text/javascript"></script>-->
     </head>
     <body>
        <div class="container">
@@ -39,9 +39,10 @@
                     <a id="usuarios" href="index.php?c=usuario&a=buscar" class="item"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Usuarios</a>
                     <strong style=" float: right; color: white; margin-right: 10px;">
                     <?php if(isset($_SESSION['usuario'])){ echo "Bienvenido ".strtoupper($_SESSION['usuario']);                    
-                    } 
+                        } 
                         else{
-                            echo $_COOKIE['cook'];
+                            if(isset($_COOKIE['cook']))
+                                echo $_COOKIE['cook'];
                         }
 ?>
                     </strong>

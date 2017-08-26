@@ -14,7 +14,6 @@
                 <input type="submit" value="Enviar"/>
             </form>  
             <a href="?c=usuario&a=registrar">Registrar</a>
-            
         </div>
        
 

@@ -45,6 +45,21 @@ class UsuarioModel {
             die($e->getMessage());
         }
     }
+    public function existeUsuario($user) {
+        try {
+            //prepare=uso de sentencias preparadas
+            $sentencia = $this->db->prepare("SELECT * FROM usuario where " .
+                "usuario='" . $user ."'");
+            $sentencia->execute();
+            //FETCH_CLASS=para traer los datos asociados a un objeto (OBJETOS DE TIPO USUARIO)
+            $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Usuario');
+            if(isset($resultset[0])&&!empty($resultset[0]))
+                return 1;
+            return 0;
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
     public function obtenerPorId($id) {
         try{
             $persona = new Persona();

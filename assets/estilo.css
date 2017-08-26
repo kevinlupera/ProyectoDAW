@@ -1,7 +1,6 @@
 
 *{
     margin: 0;
-    color: black;
 }
 .logo{
     text-align: center;
@@ -137,6 +136,10 @@ div.pie-fin{
 
 .desplegar:hover .btDesplegable {
     background-color: lightsteelblue;
+}
+.pie-pagina,pie-inicio{
+    color: white;
+    background-color: black;
 }
 
 .principal,secundaria{

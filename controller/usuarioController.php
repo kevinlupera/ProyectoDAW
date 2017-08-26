@@ -5,9 +5,10 @@ class usuarioController{
     private $usuarioModel;
     private $persona;
     function __construct() {
-         if(isset($_SESSION['usuario'])){
+        if(isset($_SESSION['usuario'])||($_REQUEST['c']=='usuario'&&$_REQUEST['a']=='registrar')){
         $this->usuarioModel = new UsuarioModel();
-         }else{
+         }
+         else{
              header("Location:index.php");
          }
     }
