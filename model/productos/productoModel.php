@@ -1,7 +1,7 @@
 <?php
 require_once 'model/Conexion.php';
 require_once 'model/productos/Producto.php';
-require_once 'model/productos/Orden.php';
+require_once 'model/ordenes/Orden.php';
 
 class productoModel {
 private $db;
