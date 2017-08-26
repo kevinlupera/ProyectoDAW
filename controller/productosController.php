@@ -17,8 +17,19 @@ class productosController{
     }
     
     public function addToCesta(){
-        $producto=new Producto();
         
+        $orden=new Orden();
+        if(isset($_POST['addCest'])){
+            $orden->setProducto_id($_POST['idproducto']);
+            $orden->setUsuario_id($_POST['idusuario']);
+            $orden->setPrecio($_POST['precio']);
+            $orden->setCantidad($_POST['cantidad']);
+            $orden->setTotal($_POST['precio']*$_POST['cantidad']);
+            $this->productoModel->insertarProductos($orden);
+        }
+        require_once 'view/header.php';
+        require_once 'view/productos/productosView.php';
+        require_once 'view/footer.php';
     }
 }
 
