@@ -23,6 +23,7 @@ class loginController{
                 setcookie("cook", $usuario->getUsuario(),time()+(60*60*4));
                 $_SESSION['usuario']=$usuario->getUsuario();
                 $_SESSION['usuario_id']=$usuario->getUsuario_id();
+                $_SESSION['tipo']=$usuario->getTipo();
             }
             else{
                 header("Location:index.php");
