@@ -15,6 +15,10 @@
         <input type="text" name="persona_id" value="<?php echo $usuario->getPersona_id(); ?>" class="form-control" placeholder="Usuario"/>
     </div>
     <div class="form-group">
+        <label>Usuario</label>
+        <input type="text" name="usuario" value="<?php echo $usuario->getUsuario(); ?>" class="form-control" placeholder="Usuario"/>
+    </div>
+    <div class="form-group">
         <label>Clave</label>
         <input type="text" name="claveUsuario" value="<?php echo $usuario->getClave(); ?>" class="form-control" placeholder="Ingrese su clave" />
     </div>

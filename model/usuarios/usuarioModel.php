@@ -140,8 +140,9 @@ class UsuarioModel {
                 $persona->getPersona_id()
                 ));
             $sentencia2 = $this->db->prepare("update usuario "
-                 ." set clave=? , usu_estado=? where usuario_id=?");
+                 ." set usuario=?, clave=? , usu_estado=? where usuario_id=?");
             $sentencia2->execute(array(
+                $usuario->getUsuario(),
                 $usuario->getClave(),
                 $usuario->getUsu_estado(),
                 $usuario->getUsuario_id()

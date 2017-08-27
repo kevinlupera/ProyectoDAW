@@ -87,6 +87,7 @@ class usuarioController{
         $persona=new Persona();
         //Leer parametros
         $usuario->setUsuario_id($_REQUEST["idUsuario"]);
+        $usuario->setUsuario($_REQUEST["usuario"]);
         $usuario->setClave($_REQUEST["claveUsuario"]);
         $usuario->setUsu_estado($_REQUEST["usu_estado"]);
         $persona->setPersona_id($_REQUEST['persona_id']);
