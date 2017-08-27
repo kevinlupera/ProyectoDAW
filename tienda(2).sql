@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-08-2017 a las 06:15:19
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 7.1.7
+-- Tiempo de generación: 27-08-2017 a las 23:26:35
+-- Versión del servidor: 10.1.22-MariaDB
+-- Versión de PHP: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -78,7 +78,7 @@ CREATE TABLE `ordenes` (
   `precio` float(5,2) NOT NULL,
   `cantidad` int(2) NOT NULL,
   `total` float(10,2) NOT NULL,
-  `orden_estado` int(1) NOT NULL
+  `orden_estado` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -86,12 +86,13 @@ CREATE TABLE `ordenes` (
 --
 
 INSERT INTO `ordenes` (`orden_id`, `producto_id`, `usuario_id`, `precio`, `cantidad`, `total`, `orden_estado`) VALUES
-(9, 4, 1, 9.95, 1, 9.95, 0),
-(11, 1, 2, 20.50, 1, 20.50, 0),
 (12, 7, 2, 14.95, 1, 14.95, 0),
-(15, 2, 1, 4.95, 1, 4.95, 0),
 (16, 2, 2, 4.95, 1, 4.95, 0),
-(17, 1, 2, 20.50, 5, 102.50, 0);
+(18, 1, 2, 20.50, 5, 102.50, 0),
+(20, 3, 2, 4.95, 3, 14.85, 0),
+(21, 9, 2, 24.95, 6, 149.70, 0),
+(22, 1, 3, 20.50, 1, 20.50, 0),
+(24, 1, 1, 20.50, 1, 20.50, 0);
 
 -- --------------------------------------------------------
 
@@ -115,8 +116,9 @@ CREATE TABLE `persona` (
 
 INSERT INTO `persona` (`persona_id`, `nombre`, `apellido`, `cedula`, `fecha_nacimiento`, `genero`, `email`) VALUES
 (1, 'Pierre Stalin', 'Chavez Pihuave', '0931587034', '1996-10-25', 'masculino', 'pierre.chavezp@ug.edu.ec'),
-(2, 'Pierro', 'Ignacio', '1234567890', '2012-08-01', 'maculino', 'pierre_chavez@outlook.com'),
-(3, 'Kevin', 'Lupera Bravo', '0951726777', '2002-12-11', 'mujer', 'kevinlupera1997@outlook.com');
+(2, 'Pierre', 'Ignacio', '1234567891', '2012-08-01', 'masculino', 'pierre_chavez@outlook.com'),
+(3, 'Kevin', 'Lupera Bravo', '0951726776', '2002-12-11', 'masculino', 'kevinlupera1997@outlook.com'),
+(4, 'yamilet', 'cisneros', '1222222222', '1996-09-25', 'masculino', 'yamilet@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -168,9 +170,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`usuario_id`, `usuario`, `clave`, `persona_id`, `tipo`, `usu_estado`) VALUES
-(1, 'admin', '12345', 1, 4, 1),
-(2, 'pierre', '12345', 2, 3, 1),
-(3, 'kevin', '12345678', 3, 1, 1);
+(1, 'admin', '12345', 1, 4, 0),
+(2, 'user2', '12345', 2, 3, 0),
+(3, 'user3', '12345', 3, 1, 0),
+(4, 'user1', '12345', 4, 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -237,12 +240,12 @@ ALTER TABLE `factura`
 -- AUTO_INCREMENT de la tabla `ordenes`
 --
 ALTER TABLE `ordenes`
-  MODIFY `orden_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `orden_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `persona_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `persona_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
@@ -252,7 +255,7 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
+  MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
