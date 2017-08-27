@@ -5,6 +5,8 @@
         <link rel="stylesheet" href="assets/estilo.css" />
         <meta charset="utf-8" />
         <link rel="stylesheet" href="assets/estilos2.css"/> 
+        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script src="funciones/funciones.js" type="text/javascript"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -23,17 +25,6 @@
            <nav>
                
                <div class="barra-navegacion" style="padding-left: 20px;">
-                    <!--
-                    <div class="desplegar">
-                    <button type="button" class="btDesplegable btn btn-primary"><i class="fa fa-bars" aria-hidden="true"></i>&nbsp;Categorias</button>
-                    <div class="contenDesple">
-                    <a href="#">BOARDS</a>
-                    <a href="#">SHIELDS</a>
-                    <a href="#">SENSORS</a>
-                  
-                    </div>
-                    </div>
-                    -->
                     <a id="inicio" href="index.php?c=productos&a=listarProductos" class="btn btn-primary"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Inicio</a>
                     <a id="login" href="index.php?c=login&a=salir" class="btn btn-warning"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<?php if(isset($_SESSION['usuario'])){echo "Salir";}else{ echo "Login";}?></a>
                     <a id="cesta" href="index.php?c=cesta&a=getOrdenxUser" class="btn btn-primary"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Cesta</a>
