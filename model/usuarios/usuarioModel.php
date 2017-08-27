@@ -79,7 +79,7 @@ class UsuarioModel {
                 "usuario='" . $usuario->getUsuario_id()."'");
             $sentencia->execute();
             $resultset2 = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Usuario');
-            if(empty($persona2)&&empty($usuario2)){
+            if(empty($resultset1)){
                 $sentencia = $this->db->prepare("insert into persona "
                     ." (nombre, apellido, cedula, fecha_nacimiento, genero, email"
                     . ") values(?,?,?,?,?,?)");

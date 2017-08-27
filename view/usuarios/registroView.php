@@ -2,8 +2,9 @@
 <h3>Registrate</h3>
 <form method="post" action="?c=usuario&a=registrar" onsubmit="return validacionFormularioRegistro()">
     <label for="idUsuario">Usuario:</label><br/>
-    <input type="text" name="idUsuario" id="campoIdUsuario" onkeypress="validaSoloLetras()"
+    <input type="text" name="idUsuario" id="campoIdUsuario" onkeypress="validaSoloLetras()" onkeyup="registerLog(this.value)"
            placeholder="Usuario" required/><br/>
+    <span id="mensaje"></span><br/>
     <label for="nombreUsuario">Nombre:</label><br/>
     <input type="text" name="nombreUsuario" id="campoNombreUsuario" onkeypress="validaSoloLetras()"
            placeholder="Nombre" required/><br/>
@@ -29,3 +30,22 @@
     <input type="submit" value="Registrar" name="botonRegistrar" class="botonForm">
     <input type="reset" value="Limpiar" class="botonForm">
 </form>
+<script language="javascript">
+    function registerLog(cadena){
+        if (cadena.length == 0) {
+            document.getElementById("mensaje").innerHTML = "";
+            return;
+        }else{
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "ajax/verificarUsuario.php?user=" + cadena, true);
+            xhttp.send();
+            xhttp.onreadystatechange=function (){
+                if(xhttp.readyState===4 && xhttp.status===200){
+                document.getElementById("mensaje").innerHTML=xhttp.responseText;           
+                }
+            }; 
+            
+        }  
+        
+    }
+</script>
