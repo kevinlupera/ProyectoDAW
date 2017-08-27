@@ -1,13 +1,13 @@
      
-        <div class="contenedor">
+        <div class="container">
             <section id="contenedorCesta">
-                <div id="infoProducto">
-                   
+                <div id="infoProducto" class="panel panel-primary">
+                    <div class="panel-heading">
                     <h3 id="descripcion">Descripcion</h3>
                     <h3 id="cantidad">Cantidad</h3>
                     <h3 id="precio">Precio</h3>
                     <h3 id="total">Total</h3>
-                </div>
+                    </div>
                 <?php
                     $T_total=0.00;
                     $T_cantidad=0;
@@ -38,7 +38,7 @@
                             echo "<div class='btQuitar'>";
                                 echo "<form method='post' action='?c=cesta&a=deleteOrden' id='formDel'>";
                                     echo "<input type='hidden' name='idordenc' value='".$orden->getOrden_id()."'>";                
-                                    echo "<input type='submit' value='quitar'  name='del'>";
+                                    echo "<input type='submit' class='btn btn-danger' value='quitar'  name='del'>";
                                 echo "</form>";
                             echo "</div>";
                         echo "</div>"; 
@@ -48,10 +48,13 @@
                     }
                 
                 ?>
-                <div id="totalProductos">
+                <div class="panel panel-info">
+                <div  class="panel-heading" >
                     <h3 id="etiquetatotal">Total</h3>
                     <span id="cantidadProductosTotal"><?php echo $T_cantidad." Items" ?> </span>
                     <span id="montoTotal"><?php echo "$".$T_total ?></span>
                 </div>
+                </div>
+               </div>
             </section>     
         </div>

@@ -21,7 +21,7 @@ class UsuarioModel {
             $sentencia = $this->db->prepare("select persona.persona_id, nombre"
                     . ", apellido, cedula, fecha_nacimiento, genero,"
                     . "email from persona, usuario where "
-                    . "persona.persona_id=usuario.persona_id and usu_estado=1");
+                    . "persona.persona_id=usuario.persona_id and tipo<>4 ");
             $sentencia->execute();
             //FETCH_CLASS=para traer los datos asociados a un objeto (OBJETOS DE TIPO ACTIVIDAD)
             $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Persona');
@@ -56,7 +56,7 @@ class UsuarioModel {
             $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Persona');
             $persona=$resultset[0];
             $sentencia = $this->db->prepare("select * from usuario "
-                    . "where persona_id =".$id . " and usu_estado=1");
+                    . "where persona_id =".$id  /*"and usu_estado=1"*/);
             $sentencia->execute();
             $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Usuario');
             $usuario=$resultset[0];
@@ -119,7 +119,7 @@ class UsuarioModel {
     public function eliminar($id) {
         try{
             $sentencia = $this->db->prepare("update usuario "
-                 ." set usu_estado=0 where persona_id =?");
+                 ." set usu_estado=1 where persona_id =?");
             $r=  $sentencia->execute(array($id));
         }catch(Exception $e){
             die($e->getMessage());
@@ -140,9 +140,10 @@ class UsuarioModel {
                 $persona->getPersona_id()
                 ));
             $sentencia2 = $this->db->prepare("update usuario "
-                 ." set clave=? where usuario_id=?");
+                 ." set clave=? , usu_estado=? where usuario_id=?");
             $sentencia2->execute(array(
                 $usuario->getClave(),
+                $usuario->getUsu_estado(),
                 $usuario->getUsuario_id()
             ));
         }catch(Exception $e){

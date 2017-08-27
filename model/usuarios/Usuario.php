@@ -5,8 +5,9 @@ class Usuario{
     private $usuario;
     private $clave;
     private $persona_id;
-    private $usu_estado;
     private $tipo;
+    private $usu_estado;
+    
    
     function __construct() {
         

@@ -1,8 +1,8 @@
 
 
 <div class="contenedorProductos">
-    <table border="2">                     
-        <tr>
+    <table border="2" class="table table-bordered">                     
+        <tr class="success">
                     <?php 
                         $producto = new Producto();
                         $x=1;
@@ -25,8 +25,8 @@
                                         echo "<input type='hidden' name='idusuario' value='".$_SESSION['usuario_id']."'>";
                                         echo "<input type='hidden' name='precio' value='".$producto->getPro_precio()."'>";
                                         echo "<label for='cantidad'>cantidad</label>";
-                                        echo "<input type='number' id='b' name='cantidad' value='1' min='1' max='10'>";
-                                        echo "<input type='submit' value='añadir a cesta' id='bt_submit' name='addCest'>";
+                                        echo "<input type='number' class='form-control' id='b' name='cantidad' value='1' min='1' max='10'>";
+                                        echo "<input type='submit' class='btn btn-default' value='añadir a cesta' id='bt_submit' name='addCest'>";
                                     
                                 ?>
                                     </form>
@@ -35,8 +35,8 @@
                         
                         <?php 
                             if(($x % 3 )==0 ){
-                                echo "</tr>";
-                                echo "<tr>";          
+                                echo "</tr >";
+                                echo "<tr class='success'>";          
                             }
                             $x=$x+1;
                         }              

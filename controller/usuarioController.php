@@ -88,6 +88,7 @@ class usuarioController{
         //Leer parametros
         $usuario->setUsuario_id($_REQUEST["idUsuario"]);
         $usuario->setClave($_REQUEST["claveUsuario"]);
+        $usuario->setUsu_estado($_REQUEST["usu_estado"]);
         $persona->setPersona_id($_REQUEST['persona_id']);
         $persona->setNombre($_REQUEST["nombreUsuario"]) ;
         $persona->setApellido($_REQUEST ["apellidoUsuario"]) ;
@@ -98,15 +99,15 @@ class usuarioController{
         if(isset($_REQUEST['idUsuario']) && !empty($_REQUEST['idUsuario'])){
             $usuario->setUsuario_id($_REQUEST['idUsuario']);
             $this->usuarioModel->actualizar($usuario,$persona);   
-            header('Location: index.php');
+            header("Location:index.php?c=usuario&a=consultar");
         }
         
     }
     
     public function eliminar(){
         //si un id es enviado cargara los datos de la actividad correspondiente a ese id
-        if(isset($_REQUEST['id'])){
-            $this->usuarioModel->eliminar($_REQUEST['id']);   
+        if(isset($_REQUEST['ide'])){
+            $this->usuarioModel->eliminar($_REQUEST['ide']);   
         }
         //Llamar a la vista flujo de ventanas
         require_once 'view/header.php';

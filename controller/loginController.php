@@ -21,9 +21,10 @@ class loginController{
         if(isset(
             $_REQUEST['usuario']) && !empty($_REQUEST['usuario'])){
             $usuario= $this->usuarioModel->validarUsuario($_REQUEST['usuario'],$_REQUEST['clave']);   
-            if(isset($usuario)&&!empty($usuario)){
-                setcookie("cook", $usuario->getUsuario(),time()+(60*60*4));
-                $_SESSION['usuario']=$usuario->getUsuario();
+            if((isset($usuario)&& !empty($usuario)) && $usuario->getUsu_estado()==0){
+                $persona= $this->usuarioModel->buscarPersonaxId($usuario->getPersona_id());
+                setcookie("cook", $persona->getNombre(),time()+(60*60*4));
+                $_SESSION['usuario']=$persona->getNombre();
                 $_SESSION['usuario_id']=$usuario->getUsuario_id();
                 $_SESSION['tipo']=$usuario->getTipo();
                 $_SESSION['persona_id']=$usuario->getPersona_id();

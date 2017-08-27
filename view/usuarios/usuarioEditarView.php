@@ -1,12 +1,13 @@
+<div class="container">
 <div class="breadcrumb">
     <a href="?c=Usuario">Usuario</a>->
     <span class="activo"><?php echo $usuario->getUsuario_id() != null ? $persona->getNombre() : 'Nuevo Registro'; ?></span>
 </div>
-<form id="frm-alumno" action="?c=usuario&a=guardar" method="post" enctype="multipart/form-data">
+    <form id="frm-actualizar" action="?c=usuario&a=guardar" method="post" enctype="multipart/form-data" style="display: block !important; width: 600px !important; margin: 0 !important">
     <label type="hidden" value="<?php echo $usuario->getUsuario_id(); ?>"/>
     
     <div class="form-group">
-        <label>Usuario</label>
+        <label>Usuario_id</label>
         <input type="text" name="idUsuario" value="<?php echo $usuario->getUsuario_id(); ?>" class="form-control" placeholder="Usuario"/>
     </div>
     <div class="form-group">
@@ -48,8 +49,13 @@
         <label>Fecha de nacimiento</label>
         <input type="text" name="fechaNacimiento" value="<?php echo $persona->getFecha_nacimiento(); ?>" class="form-control" placeholder="Ingrese su fecha de nacimiento" />
     </div>
+    <div class="form-group">
+        <label>Usuario estado(1 = eleminado(bloqueado)/0 = activo)</label>
+        <input type="text" name="usu_estado" value="<?php echo $usuario->getUsu_estado(); ?>" class="form-control" placeholder="Usuario"/>
+    </div>
     
     <div class="text-right">
-        <input type="submit" value="Guardar">
+        <input type="submit"  class="btn btn-success" value="Guardar">
     </div>
 </form>
+</div>

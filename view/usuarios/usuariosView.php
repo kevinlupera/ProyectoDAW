@@ -1,9 +1,10 @@
+<div class="container">
 <h1>Usuarios</h1>
 <div>
-    <a href="index.php?c=usuario&a=registrar">Nuevo usuario</a>
+    <a class="btn btn-success" href="index.php?c=usuario&a=registrar">Nuevo usuario</a>
 </div>
 
-<table>
+<table class="table  table-bordered">
     <thead>
         <tr>
             <th style="width:180px;">Nombre</th>
@@ -20,7 +21,7 @@
     <?php 
     $r = new Persona();
     foreach($this->persona as  $r): ?>
-        <tr>
+        <tr class="info">
             <td><?php echo $r->getNombre(); ?></td>
             <td><?php echo $r->getApellido(); ?></td>
             <td><?php echo $r->getCedula(); ?></td>
@@ -31,10 +32,11 @@
                 <a href="?c=usuario&a=Crud&id=<?php echo $r->getPersona_id(); ?>">Editar</a>
             </td>
             <td>
-                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=usuario&a=Eliminar&id=<?php echo $r->getPersona_id(); ?>">
+                <a onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=usuario&a=eliminar&ide=<?php echo $r->getPersona_id(); ?>">
                     Eliminar</a>
             </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table> 
+</div>
