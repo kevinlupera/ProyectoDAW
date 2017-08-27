@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/Conexion.php';
+require_once ('model/Conexion.php');
 require_once 'model/usuarios/Usuario.php';
 require_once 'model/usuarios/Persona.php';
 
@@ -165,12 +165,6 @@ class UsuarioModel {
         }
     }
     public function buscarPersona($cedula) {
-        //Se ha pulsado el botón aceptar
-    
-        
-      
-            //validar con Base de datos
-            
             $sentencia = $this->db->prepare("SELECT * FROM persona where " .
                 "cedula=" . $cedula);
             $sentencia->execute();
