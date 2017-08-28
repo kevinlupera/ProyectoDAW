@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    <a class="btn btn-primary" href=index.php?c=usuario&a=buscar>REGRESAR</a>
+    <a class="btn btn-primary" href="index.php?c=productos&a=listarProductos">REGRESAR</a>
 </div>
  
 
