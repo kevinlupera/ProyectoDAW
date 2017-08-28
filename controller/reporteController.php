@@ -9,7 +9,7 @@ class reporteController {
     private $reportesModel;
     private $reportes;
     function __construct() {
-        if(isset($_SESSION['usuario']) && $_SESSION['tipo']>3){
+        if(isset($_SESSION['usuario']) && $_SESSION['tipo']>=3){
             $this->reportesModel = new reporteModel();
             $this->reportes=new Reportes();
             $this->result=new StockProductos();
