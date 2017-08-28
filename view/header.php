@@ -62,6 +62,7 @@
                         echo '<a id="reporte" href="index.php?c=reporte&a=obtenerReporte" class="btn btn-primary"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;Reporte</a>';
                         echo '<a id="cesta" href="index.php?c=cesta&a=getOrdenxUser" class="btn btn-primary"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Cesta</a>';
                         echo '<a id="ventas" href="index.php?c=productos&a=listarProductos" class="btn btn-primary"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;Productos</a>';
+                        echo '<a id="perfil" href="index.php?c=usuario&a=buscar" class="btn btn-primary"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Perfil</a>';                        
                     }
                     else{
                         echo '<a id="inicio" href="index.php?c=productos&a=listarProductos" class="btn btn-primary"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Inicio</a>';
@@ -72,17 +73,9 @@
                         }
                         echo '<a id="cesta" href="index.php?c=cesta&a=getOrdenxUser" class="btn btn-primary"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Cesta</a>';
                         echo '<a id="ventas" href="index.php?c=productos&a=listarProductos" class="btn btn-primary"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;Productos</a>';
+                        echo '<a id="perfil" href="index.php?c=usuario&a=buscar" class="btn btn-primary"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Perfil</a>';                            
                     }
                     ?>
-                    <!--<a id="inicio" href="index.php?c=productos&a=listarProductos" class="btn btn-primary"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Inicio</a>
-                    <a id="login" href="index.php?c=login&a=salir" class="btn btn-warning"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<?php if(isset($_SESSION['usuario'])){echo "Salir";}else{ echo "Login";}?></a>
-                    <a id="cesta" href="index.php?c=cesta&a=getOrdenxUser" class="btn btn-primary"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Cesta</a>
-                    <a id="ventas" href="index.php?c=productos&a=listarProductos" class="btn btn-primary"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;Productos</a>
-                    <a id="reporte" href="index.php?c=reporte&a=obtenerReporte" class="btn btn-primary"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;Reporte</a>
-                    <a id="facturacion" href="index.php?c=facturas&a=listarFacturas" class="btn btn-primary"><i class="fa fa-print" aria-hidden="true"></i>&nbsp;Facturacion</a>
-                    <a id="panel" href="index.php?c=usuario&a=consultar" class="btn btn-primary"><i class="fa fa-line-chart" aria-hidden="true"></i>&nbsp;Panel usuarios</a>
-                    <a id="perfil" href="index.php?c=usuario&a=buscar" class="btn btn-primary"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Perfil</a>
-                    -->
                     <strong style=" float: right; color: white; margin-right: 10px;">
                     <?php if(isset($_SESSION['usuario'])){ echo "Bienvenido ".strtoupper($_SESSION['usuario']);                    
                     } 

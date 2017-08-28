@@ -7,7 +7,10 @@ class usuarioController{
     function __construct() {
         if(isset($_SESSION['usuario']) && $_SESSION['tipo']>=1){
             $this->usuarioModel = new UsuarioModel();
-         }else{
+         }elseif($_REQUEST['c']=="usuario" && $_REQUEST['a']=="registrar"){
+            $this->usuarioModel = new UsuarioModel();
+         }
+         else{
              header("Location:index.php");
          }
     }
