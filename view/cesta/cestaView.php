@@ -37,12 +37,16 @@
                         echo "</div>";
                             echo "<div class='btQuitar'>";
                                 echo "<form method='post' action='?c=cesta&a=deleteOrden' id='formDel' class='form-inline'>";
-                                    echo "<input type='hidden' name='idordenc' value='".$orden->getOrden_id()."'>";                
-                                    echo "<input type='submit' class='btn btn-danger' value='quitar'  name='del'>";
-                                echo "</form>";
+                                    echo "<input type='hidden' name='idordenc' value='".$orden->getOrden_id()."'>"; 
+                ?>                    
+                                    <input type='submit' class='btn btn-danger' value='quitar'  name='del'<?php if(!isset($_SESSION['usuario_id'])){echo "disabled"; } ?>>
+                <?php               
+                                    echo "</form>";
                                 echo "<form method='post' action='?c=cesta&a=pagarOrden' class='form-inline'>";
                                     echo "<input type='hidden' name='ordenPagar' value='".$orden->getOrden_id()."'>";                
-                                    echo "<input type='submit' class='btn btn-primary' value='pagar'  name='paid'>";
+                ?>                    
+                                    <input type='submit' class='btn btn-primary' value='pagar'  name='paid' <?php if(!isset($_SESSION['usuario_id'])){echo "disabled"; } ?>>
+                <?php
                                 echo "</form>";
                             echo "</div>";
                         echo "</div>"; 
