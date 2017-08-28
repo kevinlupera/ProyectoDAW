@@ -12,11 +12,14 @@
     <label for="apellidoUsuario">Apellido:</label><br/>
     <input type="text"  class="form-control" name="apellidoUsuario" id="campoApellidoUsuario" onkeypress="validaSoloLetras()"
            placeholder="Apellido" required/><br/>
+    
     <label for="cedulaUsuario">Cedula:</label><br/>
     <input type="text"  class="form-control" name="cedulaUsuario" id="campoCedulaUsuario" onkeypress="validaSoloNumeros()" maxlength="10"
-           placeholder="1234567890" required/><br/>
+           placeholder="1234567890"   onkeyup="registerReg(this.value)" required/><br/>
+    <span id="mensajeCed"></span><br/>
     <label for="correo"> E-mail:</label><br/>
-    <input type="email"  class="form-control" name="correo" id="campoEmail" placeholder="email@example.com" required><br/>
+    <input type="email"  class="form-control" name="correo" id="campoEmail" placeholder="email@example.com" onkeyup="registerCorr(this.value)" required><br/>
+    <span id="mensajeEmail"></span><br/>
     <label for="claveUsuario">Contraseña de usuario:</label><br/>
     <input type="password"  class="form-control" name="claveUsuario" id="campoContrasenia" placeholder="Clave" required><br/>
     <label for="claveUsuario">Confirmar contraseña:</label><br/>
@@ -47,6 +50,41 @@
             xhttp.onreadystatechange=function (){
                 if(xhttp.readyState===4 && xhttp.status===200){
                 document.getElementById("mensaje").innerHTML=xhttp.responseText;           
+                }
+            }; 
+            
+        }  
+        
+    }
+    
+        function registerReg(cadena){
+        if (cadena.length == 0) {
+            document.getElementById("mensajeCed").innerHTML = "";
+            return;
+        }else{
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "ajax/VerificarCedula.php?ced=" + cadena, true);
+            xhttp.send();
+            xhttp.onreadystatechange=function (){
+                if(xhttp.readyState===4 && xhttp.status===200){
+                document.getElementById("mensajeCed").innerHTML=xhttp.responseText;           
+                }
+            }; 
+            
+        }  
+        
+    }
+    function registerCorr(cadena){
+        if (cadena.length == 0) {
+            document.getElementById("mensajeEmail").innerHTML = "";
+            return;
+        }else{
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "ajax/VerificarCorreo.php?ema=" + cadena, true);
+            xhttp.send();
+            xhttp.onreadystatechange=function (){
+                if(xhttp.readyState===4 && xhttp.status===200){
+                document.getElementById("mensajeEmail").innerHTML=xhttp.responseText;           
                 }
             }; 
             

@@ -36,9 +36,13 @@
                             echo "<span class='unidad'>$<span/>";
                         echo "</div>";
                             echo "<div class='btQuitar'>";
-                                echo "<form method='post' action='?c=cesta&a=deleteOrden' id='formDel'>";
+                                echo "<form method='post' action='?c=cesta&a=deleteOrden' id='formDel' class='form-inline'>";
                                     echo "<input type='hidden' name='idordenc' value='".$orden->getOrden_id()."'>";                
                                     echo "<input type='submit' class='btn btn-danger' value='quitar'  name='del'>";
+                                echo "</form>";
+                                echo "<form method='post' action='?c=cesta&a=pagarOrden' class='form-inline'>";
+                                    echo "<input type='hidden' name='ordenPagar' value='".$orden->getOrden_id()."'>";                
+                                    echo "<input type='submit' class='btn btn-primary' value='pagar'  name='paid'>";
                                 echo "</form>";
                             echo "</div>";
                         echo "</div>"; 

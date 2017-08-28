@@ -22,6 +22,17 @@ class facturasModel {
                 die($e->getMessage());
             }
     }
+    
+     public function obtenerFacturasxPersona($id) {
+            try{
+             $sentencia = $this->db->prepare("SELECT * FROM tienda.factura where persona_id=".$id);
+             $sentencia->execute();
+              $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Factura');
+              return $resultset;
+            }catch(Exception $e){
+                die($e->getMessage());
+            }
+    }
     public function obtenerDetalles($factura_id) {
             try{
              $sentencia = $this->db->prepare("SELECT * FROM tienda.detalle where factura_id=".$factura_id);

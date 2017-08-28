@@ -171,4 +171,13 @@ class UsuarioModel {
             return $resultset[0];
     }
     
+    public function buscarUsuarioxId($id) {
+     
+            
+            $sentencia = $this->db->prepare("SELECT * FROM usuario where " .
+                "usuario_id=" . $id);
+            $sentencia->execute();
+            $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Usuario');
+            return $resultset[0];
+    }
 }

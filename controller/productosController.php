@@ -25,7 +25,10 @@ class productosController{
             $orden->setPrecio($_POST['precio']);
             $orden->setCantidad($_POST['cantidad']);
             $orden->setTotal($_POST['precio']*$_POST['cantidad']);
-            $this->productoModel->insertarProductos($orden);
+            $r=$this->productoModel->insertarProductos($orden);
+            if($r!=NULL){
+                $this->productoModel->disminuirStock($_POST['idproducto'],$_POST['cantidad']);
+            }
         }
         $this->ListarProductos();
     }

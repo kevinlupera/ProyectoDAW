@@ -48,10 +48,31 @@ private $db;
                  $orden->getTotal()
                  
              ));
+             return $r;
             }catch(Exception $e){
                 die($e->getMessage());
             }
             
         
     }
+    
+     public function disminuirStock($idproducto,$cantidad) {
+            try{
+             $sentencia = $this->db->prepare("SELECT * FROM tienda.producto where producto_id=".$idproducto);
+             $sentencia->execute();
+             $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Producto');
+             $producto=$resultset[0];
+             $stock=$producto->getPro_stock()-$cantidad;
+             
+             
+            $sentencia2 = $this->db->prepare("update tienda.producto "
+                 ." set pro_stock=? where producto_id=?");
+            $sentencia2->execute(array(
+                $stock,
+                $idproducto
+                ));
+            }catch(Exception $e){
+                die($e->getMessage());
+            }
+        }
 }

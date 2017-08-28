@@ -33,4 +33,5 @@ private $db;
             $resultset = $sentencia->fetchAll(PDO::FETCH_CLASS, 'Persona');
             return $resultset[0];
     }
+    
 }

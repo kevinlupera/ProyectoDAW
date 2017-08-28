@@ -13,7 +13,7 @@ class facturasController {
     
     
     function __construct() {
-        if(isset($_SESSION['usuario']) && $_SESSION['tipo']>1){
+        if(isset($_SESSION['usuario']) && $_SESSION['tipo']>=1){
             $this->facturasModel = new facturasModel();
             $this->personasModel=new PersonaModel();
             $this->productoModel=new productoModel();
@@ -23,10 +23,18 @@ class facturasController {
     }
     
     public function listarFacturas(){
-        $this->facturas= $this->facturasModel->obtenerFacturas();
-        require_once 'view/header.php';
-        require_once 'view/facturacion/facturasView.php';
-        require_once 'view/footer.php';
+        if($_SESSION['tipo']>=3){
+            $this->facturas= $this->facturasModel->obtenerFacturas();
+            require_once 'view/header.php';
+            require_once 'view/facturacion/facturasView.php';
+            require_once 'view/footer.php';
+        }else{
+            $id=$_SESSION['persona_id'];
+            $this->facturas= $this->facturasModel->obtenerFacturasxPersona($id);
+            require_once 'view/header.php';
+            require_once 'view/facturacion/facturasView.php';
+            require_once 'view/footer.php';
+        }
     }
     
     public function ListarDetalles(){
