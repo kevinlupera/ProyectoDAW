@@ -9,10 +9,11 @@ class cestaController{
     private $productoModel;
     private $personaModel;
     private $usuarioModel;
+    private $usu_id;
     private $ordenes;
     
     function __construct() {
-        if(isset($_SESSION['usuario']) && $_SESSION['tipo']>=1){
+        if((isset($_SESSION['usuario']) && $_SESSION['tipo']>=1)|| isset($_COOKIE["cook"])){
         $this->ordenesModel = new ordenesModel();
         $this->productoModel=new productoModel();
         $this->personaModel=new PersonaModel();
@@ -31,11 +32,19 @@ class cestaController{
     }
     
     public function getOrdenxUser(){
-        $usuario_id=$_SESSION['usuario_id'];
-        $this->ordenes= $this->ordenesModel->obtenerOrdenesxUsuario($usuario_id);
+        
+        if(isset($_SESSION['usuario_id'])){
+            $this->usu_id=$_SESSION['usuario_id']; 
+            $this->ordenes= $this->ordenesModel->obtenerOrdenesxUsuario($this->usu_id);
+            setcookie("ordenes", serialize($this->ordenes),time()+(60*60*4));
+        }else{
+            $this->ordenes=unserialize($_COOKIE["ordenes"]);
+        }
+        
         require_once 'view/header.php';
         require_once 'view/cesta/cestaView.php';
         require_once 'view/footer.php';
+        
     }
     
     public function deleteOrden(){

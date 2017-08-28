@@ -22,13 +22,16 @@
                                 <?php
                                     
                                         echo "<input type='hidden' name='idproducto' value='".$producto->getProducto_id()."'>";
-                                        echo "<input type='hidden' name='idusuario' value='".$_SESSION['usuario_id']."'>";
+                                ?>
+                                        <input type='hidden' name='idusuario' value='<?php if(isset($_SESSION['usuario_id'])){echo $_SESSION['usuario_id']; } ?>'>
+                                <?php
                                         echo "<input type='hidden' name='precio' value='".$producto->getPro_precio()."'>";
                                         echo "<label for='cantidad'>cantidad</label>";
                                         echo "<input type='number' class='form-control' id='b' name='cantidad' value='1' min='1' max='10'>";
-                                        echo "<input type='submit' class='btn btn-default' value='añadir a cesta' id='bt_submit' name='addCest'>";
-                                    
                                 ?>
+                                        <input type='submit' class='btn btn-default' value='añadir a cesta' id='bt_submit' name='addCest' <?php if(!isset($_SESSION['usuario_id'])){echo "disabled"; } ?>>
+                                    
+                                
                                     </form>
                                 </div>
                             </td>
