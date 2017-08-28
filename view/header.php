@@ -73,7 +73,6 @@
                         }
                         echo '<a id="cesta" href="index.php?c=cesta&a=getOrdenxUser" class="btn btn-primary"><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;Cesta</a>';
                         echo '<a id="ventas" href="index.php?c=productos&a=listarProductos" class="btn btn-primary"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;Productos</a>';
-                        echo '<a id="perfil" href="index.php?c=usuario&a=buscar" class="btn btn-primary"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Perfil</a>';                            
                     }
                     ?>
                     <strong style=" float: right; color: white; margin-right: 10px;">
